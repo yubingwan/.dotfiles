@@ -1,14 +1,14 @@
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-if type -q exa 
-   alias ll "exa --long --header --git --icons" 
-   alias lt "exa --tree --level=2" 
-   alias llt "exa --tree --level=2 --long" 
-   alias lla "ll -lah" 
-end 
+if type -q exa
+   alias ll "exa --long --header --icons"
+   alias lt "exa --tree --level=2"
+   alias llt "exa --tree --level=2 --long"
+   alias lla "ll -lah"
+end
 
 alias vim="nvim"
-alias vi="nvim" 
+alias vi="nvim"
 alias r="radian"
 
 bind \t accept-autosuggestion
@@ -53,8 +53,16 @@ bind \t accept-autosuggestion
 # set -g theme_project_dir_length 1
 # set -g theme_newline_cursor yes
 # set -g theme_newline_prompt '$ '
-# set -g theme_vcs_ignore_paths /some/path /some/other/path{foo,bar} 
+# set -g theme_vcs_ignore_paths /some/path /some/other/path{foo,bar}
 
 starship init fish | source
 
-
+function vimwiki
+    if test (count $argv) -eq 0
+        vim +"VimwikiIndex"
+    else if test $argv[1] = "git"
+        git -C ~/vimwiki/ $argv[2..-1]
+    else
+        echo "Usage: vimwiki [git] [args ...]"
+    end
+end

@@ -89,7 +89,7 @@ fi
 # some more ls aliases
 alias l='exa'
 alias la='exa -a'
-alias ll='exa -lah --header --git --icons'
+alias ll='exa -lah --header --icons'
 alias lr='ll -r'                  # Lists human readable sizes, recursively.
 alias lm='la | "$PAGER"'          # Lists human readable sizes, hidden files through pager.
 alias lx='ll --sort=Extension'    # Lists sorted by extension (GNU only).
@@ -280,6 +280,16 @@ bind '"\C-g":"\201\C-m"'
 
 eval "$(starship init bash)"
 
-
+vimwiki () {
+    if [[ $# == 0 ]]
+    then
+        nvim +'VimwikiIndex'
+    elif [[ $1 == 'git' ]]
+    then
+        git -C ~/vimwiki/ ${@:2}
+    else
+        echo 'Usage: vimwiki [git] [args ...]'
+    fi
+}
 
 

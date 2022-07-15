@@ -292,4 +292,4 @@ vimwiki () {
     fi
 }
 
-
+ . /usr/share/autojump/autojump.sh

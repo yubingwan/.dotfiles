@@ -66,3 +66,4 @@ function vimwiki
         echo "Usage: vimwiki [git] [args ...]"
     end
 end
+

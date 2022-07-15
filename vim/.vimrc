@@ -1,13 +1,13 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
-"               
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 "               ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
 "               ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
-"               ██║   ██║██║██╔████╔██║██████╔╝██║     
-"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
+"               ██║   ██║██║██╔████╔██║██████╔╝██║
+"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
 "                ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "                 ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
-"               
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""      
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
@@ -109,7 +109,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'dracula/vim'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
-  Plug 'preservim/nerdcommenter' 
+  Plug 'preservim/nerdcommenter'
   Plug 'mhinz/vim-startify'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -119,7 +119,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'aymericbeaumet/vim-symlink'
   Plug 'voldikss/vim-floaterm'
   Plug 'ryanoasis/vim-webdevicons'
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   Plug 'ryanoasis/vim-devicons'
 
@@ -131,7 +131,9 @@ call plug#end()
 " MAPPINGS --------------------------------------------------------------- {{{
 
 " Set the backslash as the leader key.
-  let mapleader="\\" 
+  let mapleader="\\"
+
+let g:diagnostic_enable_underline = 0
 
 " Press \\ to jump back to the last cursor position.
   nnoremap <leader>\ ``
@@ -175,7 +177,7 @@ call plug#end()
   nnoremap <c-j> <c-w>j
   nnoremap <c-k> <c-w>k
   nnoremap <c-h> <c-w>h
-  nnoremap <c-l> <c-w>l 
+  nnoremap <c-l> <c-w>l
 " Resize split windows using arrow keys by pressing:
 " CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
   noremap <c-up> <c-w>+
@@ -193,16 +195,16 @@ call plug#end()
   let g:fzf_preview_window = 'right:50%'
   let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 
-  let g:airline#extensions#tabline#formatter = 'default' 
+  let g:airline#extensions#tabline#formatter = 'default'
   " let g:airline_theme='simple'
 
-  let g:floaterm_keymap_toggle = '<F12>' 
-  let g:floaterm_width = 0.9 
+  let g:floaterm_keymap_toggle = '<F12>'
+  let g:floaterm_width = 0.9
   let g:floaterm_height = 0.9
 
   let NERDTreeShowHidden=1
 
-  " vim-startify Integraton with other plugins 
+  " vim-startify Integraton with other plugins
 let entry_format = "'   ['. index .']'. repeat(' ', (3 - strlen(index)))"
 
 if exists('*WebDevIconsGetFileTypeSymbol')  " support for vim-devicons

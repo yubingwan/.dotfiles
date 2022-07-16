@@ -29,7 +29,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'dense-analysis/ale'
   Plug 'preservim/nerdtree'

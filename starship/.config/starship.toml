@@ -1,0 +1,64 @@
+# Use custom format
+format = """
+$directory$time$rust$package$git_branch$git_status$character"""
+
+command_timeout = 800
+
+# move the rest of the prompt to the right
+# right_format = """$all"""
+
+# Move the directory to the second line
+# format="$all$directory$character"
+
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[❯](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✗](bold red) "
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[aws]
+disabled = true
+
+[directory]
+truncation_length = 12
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = "🌱 "
+truncation_length = 12
+truncation_symbol = ""
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+
+[rlang]
+format = "[📐R $version](blue bold) "
+
+[time]
+disabled = false
+format = '🕙 [\[$time\]]($style) '
+time_format = "%T"
+utc_time_offset = "-5"
+time_range = "00:00:00-23:59:59"
+
+
+
+
+
+
+
+
+

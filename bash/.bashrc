@@ -36,41 +36,41 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
+# case "$TERM" in
+#     xterm-color|*-256color) color_prompt=yes;;
+# esac
+#
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
+# if [ -n "$force_color_prompt" ]; then
+#     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+# 	# We have color support; assume it's compliant with Ecma-48
+# 	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+# 	# a case would tend to support setf rather than setaf.)
+# 	color_prompt=yes
+#     else
+# 	color_prompt=
+#     fi
+# fi
+#
+# if [ "$color_prompt" = yes ]; then
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
+# unset color_prompt force_color_prompt
+#
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#     ;;
+# *)
+#     ;;
+# esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -123,6 +123,7 @@ alias fgrep='fgrep --color=auto'
 alias bc='bc -l'
 alias sha1='openssl sha1'
 alias mkdir='mkdir -pv'
+
 ## pass options to free ##
 alias meminfo='free -m -l -t'
 
@@ -138,11 +139,10 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 alias cpuinfo='lscpu'
 
 ## older system use /proc/cpuinfo ##
-##alias cpuinfo='less /proc/cpuinfo' ##
+# alias cpuinfo='less /proc/cpuinfo' ##
 
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
-
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -183,82 +183,82 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+###############################################################################
 # export PS1='\[\033[0;33m\]\w\[\033[00m\]: '
-bash_prompt_command() {
-    # How many characters of the $PWD should be kept
-    local pwdmaxlen=30
-    # Indicate that there has been dir truncation
-    local trunc_symbol=".."
-    local dir=${PWD##*/}
-    pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
-    NEW_PWD=${PWD/#$HOME/\~}
-    local pwdoffset=$(( ${#NEW_PWD} - pwdmaxlen ))
-    if [ ${pwdoffset} -gt "0" ]
-    then
-        NEW_PWD=${NEW_PWD:$pwdoffset:$pwdmaxlen}
-        NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
-    fi
-}
+# bash_prompt_command() {
+#     # How many characters of the $PWD should be kept
+#     local pwdmaxlen=30
+#     # Indicate that there has been dir truncation
+#     local trunc_symbol=".."
+#     local dir=${PWD##*/}
+#     pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
+#     NEW_PWD=${PWD/#$HOME/\~}
+#     local pwdoffset=$(( ${#NEW_PWD} - pwdmaxlen ))
+#     if [ ${pwdoffset} -gt "0" ]
+#     then
+#         NEW_PWD=${NEW_PWD:$pwdoffset:$pwdmaxlen}
+#         NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
+#     fi
+# }
+#
+# bash_prompt() {
+#     case $TERM in
+#      xterm*|rxvt*)
+#          local TITLEBAR='\[\033]0;\u:${NEW_PWD}\007\]'
+#           ;;
+#      *)
+#          local TITLEBAR=""
+#           ;;
+#     esac
+#     local NONE="\[\033[0m\]"    # unsets color to term's fg color
+#
+#     # regular colors
+#     local K="\[\033[0;30m\]"    # black
+#     local R="\[\033[0;31m\]"    # red
+#     local G="\[\033[0;32m\]"    # green
+#     local Y="\[\033[0;33m\]"    # yellow
+#     local B="\[\033[0;34m\]"    # blue
+#     local M="\[\033[0;35m\]"    # magenta
+#     local C="\[\033[0;36m\]"    # cyan
+#     local W="\[\033[0;37m\]"    # white
+#
+#     # emphasized (bolded) colors
+#     local EMK="\[\033[1;30m\]"
+#     local EMR="\[\033[1;31m\]"
+#     local EMG="\[\033[1;32m\]"
+#     local EMY="\[\033[1;33m\]"
+#     local EMB="\[\033[1;34m\]"
+#     local EMM="\[\033[1;35m\]"
+#     local EMC="\[\033[1;36m\]"
+#     local EMW="\[\033[1;37m\]"
+#
+#     # background colors
+#     local BGK="\[\033[40m\]"
+#     local BGR="\[\033[41m\]"
+#     local BGG="\[\033[42m\]"
+#     local BGY="\[\033[43m\]"
+#     local BGB="\[\033[44m\]"
+#     local BGM="\[\033[45m\]"
+#     local BGC="\[\033[46m\]"
+#     local BGW="\[\033[47m\]"
+#
+#     local UC=$M                 # user's color
+#     [ $UID -eq "0" ] && UC=$R   # root's color
+#
+#     # PS1="$TITLEBAR ${EMY}[${UC}\u${UC}@${UC}\h ${EMY}\${NEW_PWD}${EMY}]${UC}\\$ ${NONE}"
+#     # PS1="${EMY}${UC}\h${UC} ${EMY}\${NEW_PWD}${EMY}${UC} \D{%F %T}\n\$"
+#       PS1="${EMM}${UC}[\u@\h]${UC}${EMC}[\D{%F %T}]${UC} ${EMG}\${NEW_PWD}\n>> ${NONE}"
+#     # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
+#     # extra backslash in front of \$ to make bash colorize the prompt
+# }
+#
+# # init it by setting PROMPT_COMMAND
+# PROMPT_COMMAND=bash_prompt_command
+# bash_prompt
+# unset bash_prompt
+###############################################################################
 
-bash_prompt() {
-    case $TERM in
-     xterm*|rxvt*)
-         local TITLEBAR='\[\033]0;\u:${NEW_PWD}\007\]'
-          ;;
-     *)
-         local TITLEBAR=""
-          ;;
-    esac
-    local NONE="\[\033[0m\]"    # unsets color to term's fg color
-
-    # regular colors
-    local K="\[\033[0;30m\]"    # black
-    local R="\[\033[0;31m\]"    # red
-    local G="\[\033[0;32m\]"    # green
-    local Y="\[\033[0;33m\]"    # yellow
-    local B="\[\033[0;34m\]"    # blue
-    local M="\[\033[0;35m\]"    # magenta
-    local C="\[\033[0;36m\]"    # cyan
-    local W="\[\033[0;37m\]"    # white
-
-    # emphasized (bolded) colors
-    local EMK="\[\033[1;30m\]"
-    local EMR="\[\033[1;31m\]"
-    local EMG="\[\033[1;32m\]"
-    local EMY="\[\033[1;33m\]"
-    local EMB="\[\033[1;34m\]"
-    local EMM="\[\033[1;35m\]"
-    local EMC="\[\033[1;36m\]"
-    local EMW="\[\033[1;37m\]"
-
-    # background colors
-    local BGK="\[\033[40m\]"
-    local BGR="\[\033[41m\]"
-    local BGG="\[\033[42m\]"
-    local BGY="\[\033[43m\]"
-    local BGB="\[\033[44m\]"
-    local BGM="\[\033[45m\]"
-    local BGC="\[\033[46m\]"
-    local BGW="\[\033[47m\]"
-
-    local UC=$M                 # user's color
-    [ $UID -eq "0" ] && UC=$R   # root's color
-
-    # PS1="$TITLEBAR ${EMY}[${UC}\u${UC}@${UC}\h ${EMY}\${NEW_PWD}${EMY}]${UC}\\$ ${NONE}"
-    # PS1="${EMY}${UC}\h${UC} ${EMY}\${NEW_PWD}${EMY}${UC} \D{%F %T}\n\$"
-      PS1="${EMM}${UC}[\u@\h]${UC}${EMC}[\D{%F %T}]${UC} ${EMG}\${NEW_PWD}\n>> ${NONE}"
-    # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
-    # extra backslash in front of \$ to make bash colorize the prompt
-}
-
-# init it by setting PROMPT_COMMAND
-PROMPT_COMMAND=bash_prompt_command
-bash_prompt
-unset bash_prompt
-
-####################################################################################
-
-####################################################################################
+###############################################################################
 alias vim="nvim"
 alias vi="nvim"
 alias r="radian"
@@ -277,7 +277,6 @@ function ghql() {
 bind -x '"\201": ghql'
 bind '"\C-g":"\201\C-m"'
 
-
 eval "$(starship init bash)"
 
 vimwiki () {
@@ -293,3 +292,4 @@ vimwiki () {
 }
 
  . /usr/share/autojump/autojump.sh
+

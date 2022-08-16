@@ -1,10 +1,9 @@
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 if type -q exa
-   alias ll "exa --long --header --icons"
+   alias ll "exa -lah --long --header --icons"
    alias lt "exa --tree --level=2"
    alias llt "exa --tree --level=2 --long"
-   alias lla "ll -lah"
 end
 
 alias vim="nvim"

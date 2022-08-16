@@ -106,7 +106,10 @@ POWERLEVEL9K_SHOW_CHANGESET=true
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  autojump
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -141,29 +144,90 @@ source $ZSH/oh-my-zsh.sh
 __conda_setup="$('/home/yubing_wan/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
-else            
+else
     if [ -f "/home/yubing_wan/anaconda2/etc/profile.d/conda.sh" ]; then
       . "/home/yubing_wan/anaconda2/etc/profile.d/conda.sh"
-    else        
-        export PATH="/home/yubing_wan/anaconda2/bin:$PATH"                                                                                                                                                     
-    fi          
-fi              
+    else
+        export PATH="/home/yubing_wan/anaconda2/bin:$PATH"
+    fi
+fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
 # some more ls aliases
-alias l='exa --header --icons --git'
-alias la='exa -a --header --icons --git'
-alias ll='exa -l --header --icons --git'
-alias lla='exa -la --header --icons --git' 
+alias l='exa --header --icons'
+alias la='exa -la --header --icons'
+alias ll='exa -lah --header --icons'
 
+alias clr='clear'
 
+## Show hidden files ##
+alias l.='ls -d .* --color=auto'
+
+## get rid of command not found ##
+alias cd..='cd ..'
+
+## a quick way to get out of current directory ##
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../../'
+alias .5='cd ../../../../../../'
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias bc='bc -l'
+alias sha1='openssl sha1'
+alias mkdir='mkdir -pv'
+
+## pass options to free ##
+alias meminfo='free -m -l -t'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+## older system use /proc/cpuinfo ##
+# alias cpuinfo='less /proc/cpuinfo' ##
+
+## get GPU ram on desktop / laptop##
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+## vim
 alias vim="nvim"
+alias vi="nvim"
+alias r="radian"
 
-alias xbash="exec bash -l" 
-
+alias xbash="exec bash -l"
 
 # fnm
 export PATH=/home/yubing_wan/.fnm:$PATH
 eval "`fnm env`"
+
+vimwiki () {
+    if [[ $# == 0 ]]
+    then
+        nvim +'VimwikiIndex'
+    elif [[ $1 == 'git' ]]
+    then
+        git -C ~/vimwiki/ ${@:2}
+    else
+        echo 'Usage: vimwiki [git] [args ...]'
+    fi
+}
+

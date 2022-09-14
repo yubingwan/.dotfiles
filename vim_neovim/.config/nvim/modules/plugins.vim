@@ -48,6 +48,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
   Plug 'junegunn/vim-easy-align'
+  Plug 'mickael-menu/zk-nvim'
 
 call plug#end()
 

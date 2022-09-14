@@ -1,14 +1,24 @@
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
+alias vim="nvim"
+alias vi="nvim"
+alias r="radian"
+alias tnd="tmux new -s dockers"
+alias tad="tmux a -t dockers"
+alias tnv="tmux new -s vpn"
+alias tav="tmux a -t vpn"
+
+# git commands
+alias gmm="git merge master"
+alias gmy="git merge yw"
+alias gcm="git checkout master"
+alias gcy="git checkout yw"
+
 if type -q exa
    alias ll "exa -lah --long --header --icons"
    alias lt "exa --tree --level=2"
    alias llt "exa --tree --level=2 --long"
 end
-
-alias vim="nvim"
-alias vi="nvim"
-alias r="radian"
 
 bind \t accept-autosuggestion
 
@@ -66,3 +76,9 @@ function vimwiki
     end
 end
 
+begin
+    set --local AUTOJUMP_PATH /usr/share/autojump/autojump.fish
+    if test -e $AUTOJUMP_PATH
+        source $AUTOJUMP_PATH
+    end
+end

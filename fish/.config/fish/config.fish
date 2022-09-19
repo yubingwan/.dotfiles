@@ -66,16 +66,6 @@ bind \t accept-autosuggestion
 
 starship init fish | source
 
-function vimwiki
-    if test (count $argv) -eq 0
-        vim +"VimwikiIndex"
-    else if test $argv[1] = "git"
-        git -C ~/vimwiki/ $argv[2..-1]
-    else
-        echo "Usage: vimwiki [git] [args ...]"
-    end
-end
-
 begin
     set --local AUTOJUMP_PATH /usr/share/autojump/autojump.fish
     if test -e $AUTOJUMP_PATH

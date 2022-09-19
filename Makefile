@@ -10,3 +10,4 @@ stow_all:
 
 stow_delete:
 	stow --verbose --target=$$HOME --delete */
+

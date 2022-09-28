@@ -1,11 +1,17 @@
 --[[
 lvim is the global options object
 
-Linters should be filled in as strings with either
-a global executable or a path to
-an executable
+Linters should be filled in as strings with either a global executable or a path to an executable
 ]]
+
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+
+-- options
+
+vim.opt.relativenumber = true -- set relative numbered lines
+vim.opt.scrolloff = 10 -- is one of my fav
+vim.opt.colorcolumn = "80"
+-- vim.opt.smartcase = true
 
 -- general
 lvim.log.level = "warn"
@@ -78,7 +84,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "css",
   "rust",
   "java",
-  "yaml",
+  "yaml"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -91,6 +97,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     "sumeko_lua",
 --     "jsonls",
 -- }
+
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
 -- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
@@ -101,7 +108,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- ---@usage disable automatic installation of servers
--- lvim.lsp.installer.setup.automatic_installation = false
+-- lvim.lsp.installer.setup.automatic_installation = true
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
@@ -125,8 +132,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
 -- formatters.setup {
 --   { command = "black", filetypes = { "python" } },
 --   { command = "isort", filetypes = { "python" } },
@@ -141,8 +146,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
--- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup {
 --   { command = "flake8", filetypes = { "python" } },
 --   {
@@ -174,6 +177,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   -- enable wrap mode for json files only
 --   command = "setlocal wrap",
 -- })
+
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "zsh",
 --   callback = function()
@@ -181,3 +185,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+
+-- no need to set style = "lvim"
+local components = require("lvim.core.lualine.components")
+
+lvim.builtin.lualine.sections.lualine_a = { "mode" }
+lvim.builtin.lualine.sections.lualine_y = {
+  components.encoding,
+  components.progress,
+  components.location
+}

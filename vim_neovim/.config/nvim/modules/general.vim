@@ -102,7 +102,9 @@ syntax enable
 set splitright
 set splitbelow
 
-colorscheme gruvbox
+colorscheme gruvbox-material
+" colorscheme onedark
+
 highlight Normal guibg=none
 
 set linebreak
@@ -124,11 +126,6 @@ let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', 
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
-let g:vimwiki_list = [{'path':'~/vimwiki', 'syntax':'markdown', 'ext':'.md'}]
-let g:vimwiki_ext2syntax = {'.md':'markdown', '.markdown':'markdown', '.mdown':'markdown'}
-
-" Makes vimwiki markdown links as [text](text.md) instead of [text](text)
-let g:vimwiki_markdown_link_ext = 1
 " let g:taskwiki_markup_syntax = 'markdown'
 let g:markdown_folding = 1
 

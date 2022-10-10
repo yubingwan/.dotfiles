@@ -35,6 +35,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'gruvbox-community/gruvbox'
+  Plug 'sainnhe/gruvbox-material'
+  Plug 'joshdick/onedark.vim'
+  Plug 'sheerun/vim-polyglot'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'

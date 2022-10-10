@@ -20,8 +20,12 @@ lvim.colorscheme = "onedarker"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
+vim.cmd 'source ~/.config/nvim/modules/vimwiki.vim'
+
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+
+lvim.transparent_window = true
 
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"

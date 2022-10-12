@@ -1,3 +1,6 @@
 [submodule "vim_neovim/.vim/pack/tpope/start/fugitive"]
 	path = vim_neovim/.vim/pack/tpope/start/fugitive
 	url = https://tpope.io/vim/fugitive.git
+[submodule ".tmux"]
+	path = .tmux
+	url = git@github.com:YubingWan/.tmux.git

@@ -72,6 +72,11 @@ fi
 #     ;;
 # esac
 
+alias tnd="tmux new -s dockers"
+alias tad="tmux a -t dockers"
+alias tnv="tmux new -s vpn"
+alias tav="tmux a -t vpn"
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"

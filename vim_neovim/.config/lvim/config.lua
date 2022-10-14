@@ -14,6 +14,7 @@ vim.opt.colorcolumn = "80"
 -- vim.opt.smartcase = true
 
 -- general
+
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
@@ -23,8 +24,8 @@ lvim.colorscheme = "onedarker"
 vim.cmd 'source ~/.config/nvim/modules/vimwiki.vim'
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
-lvim.leader = "space"
 
+lvim.leader = "space"
 lvim.transparent_window = true
 
 -- add your own keymapping
@@ -67,6 +68,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- }
 
 -- TODO: User Config for predefined plugins
+
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -194,8 +196,5 @@ lvim.builtin.treesitter.highlight.enabled = true
 local components = require("lvim.core.lualine.components")
 
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
-lvim.builtin.lualine.sections.lualine_y = {
-  components.encoding,
-  components.progress,
-  components.location
-}
+lvim.builtin.lualine.sections.lualine_y = { components.encoding }
+lvim.builtin.lualine.sections.lualine_z = { '%l:%c', '%p%%/%L' }

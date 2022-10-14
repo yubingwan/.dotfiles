@@ -44,3 +44,4 @@ scripts/*dbf.R
 vim_neovim/.vim/backup/*
 
 vim_neovim/.vim/plugged/*
+vim_neovim/.config/lvim/plugin/*

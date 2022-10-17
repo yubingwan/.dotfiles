@@ -1,9 +1,9 @@
 --[[
 lvim is the global options object
 
-Linters should be filled in as strings with either a global executable or a path to an executable
+Linters should be
+filled in as strings with either a global executable or a path to an executable
 ]]
-
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- options
@@ -16,22 +16,22 @@ vim.opt.colorcolumn = "80"
 -- general
 
 lvim.log.level = "warn"
-lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
+lvim.format_on_save = false
+lvim.colorscheme = "tokyonight"
+lvim.transparent_window = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
-vim.cmd 'source ~/.config/nvim/modules/vimwiki.vim'
-
 -- keymappings [view all the defaults by pressing <leader>Lk]
-
 lvim.leader = "space"
-lvim.transparent_window = true
 
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+
+lvim.keys.insert_mode["jj"] = "<Esc>"
+
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -55,6 +55,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   },
 -- }
 
+-- Change theme settings
+-- lvim.builtin.theme.options.dim_inactive = true
+-- lvim.builtin.theme.options.style = "storm"
+
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
@@ -68,6 +72,17 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- }
 
 -- TODO: User Config for predefined plugins
+
+-- no need to set style = "lvim"
+lvim.builtin.lualine.style = "default"
+local components = require("lvim.core.lualine.components")
+
+lvim.builtin.lualine.sections.lualine_a = { "mode", "filename" }
+lvim.builtin.lualine.sections.lualine_b = { "branch" }
+lvim.builtin.lualine.sections.lualine_c = { "diff" }
+lvim.builtin.lualine.sections.lualine_y = { components.lsp, components.diagnostics }
+lvim.builtin.lualine.sections.lualine_z = { '%l:%c', '%p%%/%L' }
+
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -90,20 +105,19 @@ lvim.builtin.treesitter.ensure_installed = {
   "css",
   "rust",
   "java",
-  "yaml"
+  "yaml",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.highlight.enable = true
 
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
 -- lvim.lsp.installer.setup.ensure_installed = {
---     "sumeko_lua",
+--     "sumneko_lua",
 --     "jsonls",
 -- }
-
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
 -- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
@@ -114,7 +128,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- ---@usage disable automatic installation of servers
--- lvim.lsp.installer.setup.automatic_installation = true
+-- lvim.lsp.installer.setup.automatic_installation = false
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
@@ -138,6 +152,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
+-- -- set a formatter, this will override the language server formatting capabilities (if it exists)
+-- local formatters = require "lvim.lsp.null-ls.formatters"
 -- formatters.setup {
 --   { command = "black", filetypes = { "python" } },
 --   { command = "isort", filetypes = { "python" } },
@@ -152,6 +168,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
+-- -- set additional linters
+-- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup {
 --   { command = "flake8", filetypes = { "python" } },
 --   {
@@ -170,7 +188,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 -- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
 --     {
 --       "folke/trouble.nvim",
 --       cmd = "TroubleToggle",
@@ -183,7 +200,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   -- enable wrap mode for json files only
 --   command = "setlocal wrap",
 -- })
-
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "zsh",
 --   callback = function()
@@ -191,10 +207,3 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
-
--- no need to set style = "lvim"
-local components = require("lvim.core.lualine.components")
-
-lvim.builtin.lualine.sections.lualine_a = { "mode" }
-lvim.builtin.lualine.sections.lualine_y = { components.encoding }
-lvim.builtin.lualine.sections.lualine_z = { '%l:%c', '%p%%/%L' }

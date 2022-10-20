@@ -81,7 +81,7 @@ lvim.builtin.lualine.sections.lualine_a = { "mode", "filename" }
 lvim.builtin.lualine.sections.lualine_b = { "branch" }
 lvim.builtin.lualine.sections.lualine_c = { "diff" }
 lvim.builtin.lualine.sections.lualine_x = { components.encoding, components.filetype }
-lvim.builtin.lualine.sections.lualine_y = { components.lsp, components.diagnostics }
+lvim.builtin.lualine.sections.lualine_y = { components.lsp, components.treesitter, components.diagnostics }
 lvim.builtin.lualine.sections.lualine_z = { '%l:%c', '%p%%/%L' }
 
 
@@ -107,6 +107,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+--  "r"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -141,12 +142,14 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "r_language_
 -- require("lvim.lsp.manager").setup("pyright", opts)
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
+
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
 -- lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
 --   return server ~= "emmet_ls"
 -- end, lvim.lsp.automatic_configuration.skipped_servers)
 
 -- -- you can set a custom on_attach function that will be used for all the language servers
+
 -- -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
 -- lvim.lsp.on_attach_callback = function(client, bufnr)
 --   local function buf_set_option(...)
@@ -157,38 +160,42 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "r_language_
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "r" } },
---   { command = "isort", filetypes = { "r" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact", 'r' },
---   },
--- }
+
+local formatters = require "lvim.lsp.null-ls.formatters"
+-- local sources = { null_ls.builtins.formatting.format_r }
+
+formatters.setup {
+  { command = "black", filetypes = { "python" } },
+  { command = "isort", filetypes = { "python" } },
+  {
+    -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+    command = "prettier",
+    ---@usage arguments to pass to the formatter
+    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    extra_args = { "--print-with", "100" },
+    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    filetypes = { "typescript", "typescriptreact" },
+  },
+--   { command = "R", filetypes = { "r", "rmd" } },
+}
 
 -- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
---   {
---     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--severity", "warning" },
---   },
---   {
---     command = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
---   },
--- }
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { command = "flake8", filetypes = { "python", "r" } },
+  {
+    -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+    command = "shellcheck",
+    ---@usage arguments to pass to the formatter
+    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    extra_args = { "--severity", "warning" },
+  },
+  {
+    command = "codespell",
+    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    filetypes = { "javascript", "python", "r"},
+  },
+}
 
 -- Additional Plugins
 -- lvim.plugins = {

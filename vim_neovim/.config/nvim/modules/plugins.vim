@@ -43,7 +43,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'preservim/nerdcommenter'
   Plug 'vimwiki/vimwiki'
- " Plug 'tbabej/taskwiki'
+  " Plug 'tbabej/taskwiki'
   Plug 'plasticboy/vim-markdown'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}

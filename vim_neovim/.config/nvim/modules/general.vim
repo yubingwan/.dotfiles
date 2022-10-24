@@ -103,9 +103,13 @@ set splitright
 set splitbelow
 
 colorscheme gruvbox-material
+" colorscheme gruvbox
+let g:gruvbox_material_transparent_background=2
+let g:gruvbox_material_foreground='mix'
+
 " colorscheme onedark
 
-highlight Normal guibg=none
+highlight Normal guibg=none ctermbg=none
 
 set linebreak
 

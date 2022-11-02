@@ -71,6 +71,9 @@ lvim.keys.insert_mode["jj"] = "<Esc>"
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 -- }
 
+lvim.builtin.telescope.defaults.layout_config.width = 0.98
+lvim.builtin.telescope.defaults.layout_config.preview_cutoff = 40
+
 -- TODO: User Config for predefined plugins
 
 -- no need to set style = "lvim"
@@ -88,7 +91,7 @@ lvim.builtin.lualine.sections.lualine_z = { '%l:%c', '%p%%/%L' }
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
+-- lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false

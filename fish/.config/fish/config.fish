@@ -3,10 +3,9 @@ eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 alias vim="nvim"
 alias vi="nvim"
 alias r="radian"
-alias tnd="tmux new -s dockers"
-alias tad="tmux a -t dockers"
-alias tnv="tmux new -s vpn"
-alias tav="tmux a -t vpn"
+alias ntd="tmux new -s dockers"
+alias atd="tmux a -t dockers"
+alias atv="tmux a -t vpn"
 
 # git commands
 alias gmm="git merge master"

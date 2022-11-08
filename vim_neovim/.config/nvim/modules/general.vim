@@ -27,6 +27,7 @@ set signcolumn=yes
 set smartindent
 set colorcolumn=80
 set cmdheight=2
+set textwidth=80
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline

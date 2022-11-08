@@ -155,14 +155,12 @@ let g:diagnostic_enable_underline = 0
   nnoremap o o<esc>
   nnoremap O O<esc>
 
-
 " Center the cursor vertically when moving to the next word during a search.
   nnoremap n nzz
   nnoremap N Nzz
 
 " Yank from cursor to the end of line.
   nnoremap Y y$
-
 
 " Map the F5 key to run a Python script inside Vim.
 " I map F5 to a chain of commands here.
@@ -193,7 +191,7 @@ let g:diagnostic_enable_underline = 0
   let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
   let g:fzf_preview_window = 'right:50%'
-  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
+  let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.6 }}
 
   let g:airline#extensions#tabline#formatter = 'default'
   " let g:airline_theme='simple'
@@ -282,7 +280,6 @@ if has('gui_running')
         \else<Bar>
         \set guioptions+=mTr<Bar>
         \endif<CR>
-
 endif
 
 " }}}
@@ -304,7 +301,6 @@ set encoding=UTF-8
 " Status line right side.
 " set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
 set statusline=%f\ %{WebDevIconsGetFileTypeSymbol()}\ %h%w%m%r\ %=%(%l,%c%V\ %Y\ %=\ %P%)
-
 
 " Show the status on the second to last line.
 " set laststatus=2

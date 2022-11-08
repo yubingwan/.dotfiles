@@ -10,8 +10,8 @@ filled in as strings with either a global executable or a path to an executable
 
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.scrolloff = 10 -- is one of my fav
-vim.opt.colorcolumn = "80"
--- vim.opt.smartcase = true
+-- vim.opt.colorcolumn = "80"
+-- -- vim.opt.smartcase = true
 
 -- general
 
@@ -23,6 +23,7 @@ lvim.transparent_window = true
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
+
 lvim.leader = "space"
 
 -- add your own keymapping
@@ -140,7 +141,7 @@ lvim.builtin.treesitter.highlight.enable = true
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
 
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "r_language_server" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "r_language_server" })
 
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)

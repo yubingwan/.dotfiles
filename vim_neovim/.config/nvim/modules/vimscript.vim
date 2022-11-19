@@ -1,23 +1,20 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIMSCRIPT -------------------------------------------------------------- {{{
-
-" This will enable code folding. Use the marker method of folding.
-augroup filetype_vim
+" This will enable code folding. Use the marker method of folding.{{{
+augroup filetype_vim"}}}
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
 " More Vimscripts code goes here.
-
-autocmd Filetype wiki,txt set tw=80
+autocmd Filetype wiki,txt,md,r set tw=80
 
 " If the current file type is HTML, set indentation to 2 spaces.
 autocmd Filetype html,r setlocal tabstop=2 shiftwidth=2 expandtab
 
 " If Vim version is equal to or greater than 7.3 enable undofile.
 " This allows you to undo changes to a file even after saving it.
-if version >= 703
-    set undodir=~/.vim/backup
+if version >= 703"{{{
+    set undodir=~/.vim/backup"}}}
     set undofile
     set undoreload=10000
 endif
@@ -67,8 +64,4 @@ if has('gui_running')
         \set guioptions+=mTr<Bar>
         \endif<CR>
 endif
-
-" }}}
-
-
 

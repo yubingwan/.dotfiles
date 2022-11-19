@@ -24,12 +24,12 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'dense-analysis/ale'
+  " Plug 'neoclide/coc.nvim'
   Plug 'preservim/nerdtree'
   Plug 'dracula/vim'
   Plug 'ryanoasis/vim-devicons'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
-  Plug 'preservim/nerdcommenter'
   Plug 'mhinz/vim-startify'
   Plug 'vim-airline/vim-airline'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -46,8 +46,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'tbabej/taskwiki'
   Plug 'plasticboy/vim-markdown'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'jalvesaq/Nvim-R'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
   Plug 'junegunn/vim-easy-align'

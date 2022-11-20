@@ -52,6 +52,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'mickael-menu/zk-nvim'
   Plug 'tpope/vim-fugitive'
+  Plug 'akinsho/toggleterm.nvim'
 
 call plug#end()
 

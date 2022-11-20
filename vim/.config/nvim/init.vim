@@ -1,6 +1,4 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source $HOME/.config/nvim/modules/plugins.vim
 source $HOME/.config/nvim/modules/options.vim
 source $HOME/.config/nvim/modules/mappings.vim

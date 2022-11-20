@@ -102,6 +102,18 @@ vimwiki () {
     fi
 }
 
+lvimwiki () {
+    if [[ $# == 0 ]]
+    then
+        lvim + 'VimwikiIndex'
+    elif [[ $1 == 'git' ]]
+    then
+        git -C ~/vimwiki/ ${@:2}
+    else
+        echo 'Usage: vimwiki [git] [args ...]'
+    fi
+}
+
  . /usr/share/autojump/autojump.sh
 
 export NVM_DIR="$HOME/.nvm"

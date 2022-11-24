@@ -25,7 +25,7 @@ plug "zap-zsh/fzf"
 plug "zsh-users/zsh-syntax-highlighting"
 
 # keybinds
-# bindkey ' ' autosuggest-accept
+bindkey '^ ' autosuggest-accept
 
 if command -v bat &> /dev/null; then
   alias cat="bat -pp --theme \"Visual Studio Dark+\"" 
@@ -57,6 +57,21 @@ lvimwiki () {
 }
 
 . /usr/share/autojump/autojump.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('$HOME/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "$HOME/anaconda2/etc/profile.d/conda.sh" ]; then
+      . "$HOME/anaconda2/etc/profile.d/conda.sh"
+    else
+        export PATH="$HOME/anaconda2/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 eval "$(zoxide init zsh)"
 

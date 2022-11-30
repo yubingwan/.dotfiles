@@ -78,3 +78,6 @@ unset __conda_setup
 eval "$(zoxide init zsh)"
 
 eval "$(starship init zsh)"
+
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit

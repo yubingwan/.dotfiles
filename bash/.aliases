@@ -1,3 +1,5 @@
+#! /bin/sh
+## user friendly
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
@@ -5,11 +7,14 @@ alias rm="rm -i"
 alias df="df -h"
 alias free="free -m"
 
+alias c='clear'
+
+## tmux 
 alias ntd="tmux new -s dockers"
 alias atd="tmux a -t dockers"
 alias atv="tmux a -t vpn"
 
-# some more ls aliases
+## more ls
 alias l='exa'
 alias la='exa -a'
 alias ll='exa -lah --header --icons'
@@ -21,9 +26,12 @@ alias lt='ll --sort=modified -r'  # Lists sorted by date, most recent last.
 alias lc='lt -m'                  # Lists sorted by date, most recent last, shows change time.
 alias lu='lt -u'                  # Lists sorted by date, most recent last, shows access time.
 
-alias c='clear'
+# git 
 alias m='git checkout master'
 alias yw='git checkout yw'
+alias mm='git merge master'
+alias myw='git merge yw'
+alias gs='git status'
 
 ## Show hidden files ##
 alias l.='ls -d .* --color=auto'
@@ -75,15 +83,14 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    #alias ls='exa --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'
     alias egrep='egrep --color=auto'
     alias fgrep='fgrep --color=auto'
 fi
 
-###############################################################################
+## vim 
 alias vim="nvim"
 alias vi="nvim"
+
+## programs  
 alias r="radian"

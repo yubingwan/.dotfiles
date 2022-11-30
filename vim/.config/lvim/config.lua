@@ -162,8 +162,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "css",
   "rust",
   "java",
-  "yaml"
-  --  "r"
+  "yaml" -- , "r"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -193,7 +192,7 @@ lvim.builtin.treesitter.highlight.enable = true
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
 
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "r_language_server" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "r_language_server" })
 
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
@@ -233,7 +232,7 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "r_language_
 --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 --     filetypes = { "typescript", "typescriptreact" },
 --   },
--- --   { command = "R", filetypes = { "r", "rmd" } },
+--   { command = "R", filetypes = { "r", "rmd" } },
 -- }
 
 -- -- set additional linters
@@ -264,7 +263,8 @@ lvim.plugins = {
   { "tbabej/taskwiki" },
   { "plasticboy/vim-markdown" },
   { "jalvesaq/Nvim-R" },
-  { "junegunn/goyo.vim" }
+  { "junegunn/goyo.vim" },
+  { "sbdchd/neoformat"}
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)

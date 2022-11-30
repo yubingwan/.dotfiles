@@ -53,6 +53,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mickael-menu/zk-nvim'
   Plug 'tpope/vim-fugitive'
   Plug 'akinsho/toggleterm.nvim'
+  Plug 'sbdchd/neoformat'
 
 call plug#end()
 

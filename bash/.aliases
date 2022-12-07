@@ -9,15 +9,20 @@ alias free="free -m"
 
 alias c='clear'
 
+alias emacs="emacsclient -c -a 'emacs'"
+
 ## tmux 
 alias ntd="tmux new -s dockers"
 alias atd="tmux a -t dockers"
 alias atv="tmux a -t vpn"
+alias nte="tmux new -s emacs"
+alias ate="tmux a -t emacs"
 
 ## more ls
-alias l='exa'
-alias la='exa -a'
-alias ll='exa -lah --header --icons'
+alias ls='exa --group-directories-first --icons'
+alias ll='ls -lh --git'
+alias la='ll -a'
+alias tree='ll -tree --level=2'
 alias lr='ll -r'                  # Lists human readable sizes, recursively.
 alias lm='la | "$PAGER"'          # Lists human readable sizes, hidden files through pager.
 alias lx='ll --sort=Extension'    # Lists sorted by extension (GNU only).
@@ -27,11 +32,14 @@ alias lc='lt -m'                  # Lists sorted by date, most recent last, show
 alias lu='lt -u'                  # Lists sorted by date, most recent last, shows access time.
 
 # git 
-alias m='git checkout master'
-alias yw='git checkout yw'
-alias mm='git merge master'
-alias myw='git merge yw'
+alias gm='git checkout master'
+alias gy='git checkout yw'
+alias gmm='git merge master'
+alias gmy='git merge yw'
 alias gs='git status'
+alias gh='git push'
+alias gl='git pull'
+alias ga='f() { git add . && if [ -n "$1" ] then git commit -m "$1" else git commit -m "update" fi && git push; }; f'
 
 ## Show hidden files ##
 alias l.='ls -d .* --color=auto'

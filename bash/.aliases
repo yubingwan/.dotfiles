@@ -19,10 +19,9 @@ alias nte="tmux new -s emacs"
 alias ate="tmux a -t emacs"
 
 ## more ls
-alias ls='exa --group-directories-first --icons'
-alias ll='ls -lh --git'
-alias la='ll -a'
-alias tree='ll -tree --level=2'
+alias ll='exa --group-directories-first --icons -lah --git'
+# alias tree='exa --group-directories-first --icons -lah --git --tree --level=2'
+alias tree='ll --tree --level=2'
 alias lr='ll -r'                  # Lists human readable sizes, recursively.
 alias lm='la | "$PAGER"'          # Lists human readable sizes, hidden files through pager.
 alias lx='ll --sort=Extension'    # Lists sorted by extension (GNU only).

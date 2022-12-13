@@ -18,3 +18,9 @@ vim.cmd [[ set noswapfile ]]
 
 --Line numbers
 vim.wo.number = true
+
+vim.opt.relativenumber = true -- set relative numbered lines
+vim.opt.scrolloff = 10 -- is one of my fav
+vim.opt.colorcolumn = "80"
+vim.opt.smartcase = true
+

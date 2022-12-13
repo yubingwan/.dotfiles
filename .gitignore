@@ -41,6 +41,4 @@ vignettes/*.pdf
 
 scripts/*dbf.R
 
-vim/.vim/backup/*
-vim/.vim/plugged/*
 vim/.config/lvim/plugin/*

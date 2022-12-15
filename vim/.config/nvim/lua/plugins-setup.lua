@@ -30,6 +30,7 @@ end
 return require('packer').startup(function(use)
   -- packer can manage itself
   use 'wbthomason/packer.nvim'
+  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
   -- colorschemes
   use 'ellisonleao/gruvbox.nvim'
@@ -73,12 +74,10 @@ return require('packer').startup(function(use)
     "jose-elias-alvarez/typescript.nvim", -- additional functionality for typescript server (e.g. rename file & update imports)
     "onsails/lspkind.nvim", -- vs-code like icons for autocompletion
   }
-
-  use {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.0',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+ 
+  -- fuzzy finding w/ telescope
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
+  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
   -- autocompletion
   use("hrsh7th/nvim-cmp") -- completion plugin
@@ -88,7 +87,6 @@ return require('packer').startup(function(use)
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
   use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

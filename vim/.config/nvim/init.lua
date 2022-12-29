@@ -2,7 +2,7 @@ require("plugins-setup")
 require("core.options")
 require("core.keymaps")
 require("core.colorscheme")
-
+require("core.vimwiki")
 require("plugins.lualine")
 require("plugins.nvim-tree")
 require("plugins.treesitter")

@@ -1,4 +1,5 @@
 #! /bin/sh
+
 ## user friendly
 alias cp="cp -i"
 alias mv="mv -i"
@@ -10,6 +11,11 @@ alias free="free -m"
 alias c='clear'
 
 alias emacs="emacsclient -c -a 'emacs'"
+
+## aws 
+alias assh5555='autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -L 5555:localhost:5555 awsinst -N &'
+alias assh4444='autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -L 4444:localhost:4444 awsinst -N &'
+alias assh4455='autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -L 4455:localhost:4455 awsinst -N &'
 
 ## tmux 
 alias ntd="tmux new -s dockers"
@@ -38,7 +44,6 @@ alias gmy='git merge yw'
 alias gs='git status'
 alias gh='git push'
 alias gl='git pull'
-alias ga='f() { git add . && if [ -n "$1" ] then git commit -m "$1" else git commit -m "update" fi && git push; }; f'
 
 ## Show hidden files ##
 alias l.='ls -d .* --color=auto'

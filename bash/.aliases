@@ -19,10 +19,10 @@ alias assh4455='autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax
 
 ## tmux 
 alias ntd="tmux new -s dockers"
-alias atd="tmux a -t dockers"
-alias atv="tmux a -t vpn"
 alias nte="tmux new -s emacs"
+alias atd="tmux a -t dockers"
 alias ate="tmux a -t emacs"
+alias atv="tmux a -t vpn"
 
 ## more ls
 alias ll='exa --group-directories-first --icons -lah --git'
@@ -37,13 +37,14 @@ alias lc='lt -m'                  # Lists sorted by date, most recent last, show
 alias lu='lt -u'                  # Lists sorted by date, most recent last, shows access time.
 
 # git 
-alias gm='git checkout master'
-alias gy='git checkout yw'
+alias gcm='git checkout master'
+alias gcyw='git checkout yw'
 alias gmm='git merge master'
-alias gmy='git merge yw'
+alias gmyw='git merge yw'
 alias gs='git status'
 alias gh='git push'
 alias gl='git pull'
+alias gaa='git add -A'
 
 ## Show hidden files ##
 alias l.='ls -d .* --color=auto'

@@ -87,6 +87,8 @@ return require('packer').startup(function(use)
   }
 
   -- fuzzy finding w/ telescope
+  use { "BurntSushi/ripgrep" }
+  use { "sharkdp/fd" }
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" } -- dependency for better sorting performance
   use { "nvim-telescope/telescope.nvim", branch = "0.1.x" } -- fuzzy finder
 

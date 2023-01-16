@@ -1,5 +1,7 @@
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
+source ~/.aliases
+
 alias vim="nvim"
 alias vi="nvim"
 alias r="radian"

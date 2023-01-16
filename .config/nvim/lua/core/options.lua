@@ -1,5 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.python3_host_prog = '/usr/bin/python3'
 
 vim.opt.backspace = '2'
 vim.opt.showcmd = true
@@ -23,4 +24,3 @@ vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.scrolloff = 10 -- is one of my fav
 vim.opt.colorcolumn = "80"
 vim.opt.smartcase = true
-

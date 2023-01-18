@@ -1,7 +1,7 @@
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua", "solargraph" }
+  ensure_installed = { "sumneko_lua", "rust_analyzer" }
 })
 
 local on_attach = function(_, _)

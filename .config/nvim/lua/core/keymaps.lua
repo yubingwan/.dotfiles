@@ -12,7 +12,6 @@ keymap.set("i", "jj", "<ESC>")
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
-
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
@@ -34,7 +33,7 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
-----------------------
+---------------------
 -- Plugin Keybinds
 ----------------------
 

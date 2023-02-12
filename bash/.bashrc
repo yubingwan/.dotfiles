@@ -2,6 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 fortune | cowsay -pn # -f stegosaurus
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -126,3 +127,4 @@ eval "`fnm env`"
 eval "$(zoxide init bash)"
 
 . "$HOME/.cargo/env"
+

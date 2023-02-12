@@ -2,7 +2,9 @@ local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    fn.system({
+      'git', 'clone', '--depth', '1',
+      'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -56,26 +58,20 @@ return require('packer').startup(function(use)
     run = function()
       local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
       ts_update()
-    end,
+    end
   }
 
   -- auto closing
   use 'windwp/nvim-autopairs' -- autoclose parens, brackets, quotes, etc...
   use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" } -- autoclose tags
-
   use 'vim-test/vim-test'
-
   use 'lewis6991/gitsigns.nvim'
-
   use 'preservim/vimux'
-
   use 'christoomey/vim-tmux-navigator'
-
   use 'github/copilot.vim'
 
   -- commenting with gc
   use 'numToStr/Comment.nvim'
-
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",

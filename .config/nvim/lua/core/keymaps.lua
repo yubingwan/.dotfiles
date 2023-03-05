@@ -1,11 +1,13 @@
--- set leader key to space
-vim.g.mapleader = " "
-
 local keymap = vim.keymap -- for conciseness
 
 ---------------------
 -- General Keymaps
 ---------------------
+
+-- set leader key to space
+keymap.set("", "<Space>", "<Nop>")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- use jk to exit insert mode
 keymap.set("i", "jj", "<ESC>")
@@ -58,4 +60,3 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-

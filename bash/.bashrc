@@ -126,5 +126,7 @@ export PATH=/home/yubing_wan/.cargo/bin:/home/yubing_wan/.fnm:$PATH
 eval "`fnm env`"
 eval "$(zoxide init bash)"
 
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
 . "$HOME/.cargo/env"
 

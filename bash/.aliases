@@ -9,7 +9,7 @@ alias free="free -m"
 
 alias c='clear'
 
-alias emacs="emacsclient -c -a 'emacs'"
+alias emacsclt="emacsclient -c -a 'emacs'"
 
 ## aws 
 alias assh5555='autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -L 5555:localhost:5555 awsinst -N &'

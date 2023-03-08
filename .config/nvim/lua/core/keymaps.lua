@@ -60,3 +60,9 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+-- Start interactive EasyAlign in visual mode (e.g. vipga)
+keymap.set("v", "ga", ":EasyAlign<CR>")
+
+-- Start interactive EasyAlign for a motion/text object (e.g. gaip)
+keymap.set("n", "ga", ":EasyAlign<CR>")

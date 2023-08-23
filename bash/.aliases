@@ -44,6 +44,8 @@ alias gs='git status'
 alias gh='git push'
 alias gl='git pull'
 alias gaa='git add -A'
+alias gsu='git submodule update'
+alias gsui='git submodule update --init'
 
 ## Show hidden files ##
 alias l.='ls -d .* --color=auto'

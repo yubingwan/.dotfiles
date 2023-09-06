@@ -11,6 +11,8 @@ alias c='clear'
 
 alias emacsclt="emacsclient -c -a 'emacs'"
 
+alias aptup="sudo apt update && sudo apt upgrade"
+
 ## aws 
 alias assh5555='autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -L 5555:localhost:5555 awsinst -N &'
 alias assh4444='autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -L 4444:localhost:4444 awsinst -N &'

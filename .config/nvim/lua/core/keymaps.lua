@@ -20,6 +20,15 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
+-- Paste without losing text
+keymap.set("v", "p", '"_dP')
+
+-- Make Y behave like C or D
+keymap.set("n", "Y", "y$")
+
+-- Close Buffer without losing split
+keymap.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "Close Buffer" })
+
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement

@@ -130,3 +130,5 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 
 . "$HOME/.cargo/env"
 
+export MODULAR_HOME="/home/yubing_wan/.modular"
+export PATH="/home/yubing_wan/.modular/pkg/packages.modular.com_mojo/bin:$PATH"

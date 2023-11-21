@@ -1,6 +1,6 @@
 #!/bin/sh
 
 tmux new-session -s vpn -n openvpn -d
-tmux send-keys -t vpn:openvpn "sudo openvpn --config ~/.vpn/client_us_new.ovpn" Enter
+tmux send-keys -t vpn:openvpn "sudo openvpn --config ~/.vpn/client_auto.ovpn" Enter
 tmux select-window -t vpn:openvpn 
 tmux -u attach -t vpn

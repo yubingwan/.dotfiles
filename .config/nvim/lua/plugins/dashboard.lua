@@ -1,7 +1,7 @@
 local db = require("dashboard")
 -- db.preview_file_height = 11
 -- db.preview_file_width = 70
-local home = os.getenv("HOME")
+-- local home = os.getenv("HOME")
 
 db.setup({
 	theme = "doom",
